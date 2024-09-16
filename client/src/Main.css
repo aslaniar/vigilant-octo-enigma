@@ -1,6 +1,7 @@
-.Main {
+body {
     margin-top: 1em;
-    color: darkgrey;
+    background-color: whitesmoke;
+
 }
 
 .Main-header {
