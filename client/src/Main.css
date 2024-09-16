@@ -1,0 +1,28 @@
+.Main {
+    margin-top: 1em;
+    color: darkgrey;
+}
+
+.Main-header {
+    background-color: #1ED760;
+        width: 94%; /* This makes the div take up 80% of the screen width */
+        /*max-width: 1200px; !* Optional: Sets a maximum width to prevent it from becoming too large on very wide screens *!*/
+        height: 90vh; /* This makes the div take up 80% of the viewport height */
+
+        border-radius: 15px; /* This gives the div rounded corners */
+
+        /* Respectfully what the FUCK do these do */
+        /* Centering the div horizontally and vertically */
+        margin: auto; /* Centers horizontally */
+        display: flex;
+        align-items: center; /* Centers content vertically */
+        justify-content: center; /* Centers content horizontally */
+
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Optional: Adds a subtle shadow */
+        padding: 20px; /* Adds internal padding to keep content away from the edges */
+}
+
+
+
+
+
