@@ -1,0 +1,24 @@
+.Main-form {
+    background-color: whitesmoke;
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+
+input {
+    background-color: whitesmoke;
+    width: 75%;
+    padding: 12px 20px;
+    border-radius: 10px;
+    margin: 8px;
+}
+
+button {
+    background-color: whitesmoke;
+    padding: 5px 5px;
+    border-radius: 10px;
+    /*margin: 25px;*/
+}

@@ -23,7 +23,7 @@ body {
         padding: 20px; /* Adds internal padding to keep content away from the edges */
 }
 
-
-
-
+p {
+    padding: 20px;
+}
 
