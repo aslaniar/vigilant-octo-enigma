@@ -1,21 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Main.css';
 import Search from './Search';
+import Welcome from './Welcome';
 
 function Main() {
+    const [loggedIn, setLoggedIn] = useState(false
+    );
+
     return (
-        <div className="Main">
-            <header className='Main-header'>
-                <p>This is it.</p>
-            {/*<form className="Main-form">*/}
-            {/*    <input name="Main-input"/>*/}
-            {/*    <button type="submit">Search</button>*/}
-            {/*</form>*/}
-                <Search></Search>
+        <div className="Main-header">
+                {loggedIn ? <Search /> : <Welcome />}
 
 
-
-        </header>
+                {/*<Search></Search>*/}
 
 
 

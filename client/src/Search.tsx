@@ -2,10 +2,6 @@ import React, {ChangeEvent, FormEvent, useState} from 'react';
 import './Search.css'
 
 function Search() {
-    // function search(formData: FormData) {
-    //     const query = formData.get("query");
-    //     alert(`You searched for '${query}'`);
-    // }
     const [formData, setFormData] = useState(''
     );
 
