@@ -1,6 +1,6 @@
 import React from 'react';
-import spotify from "../public/spotify.png"
-import "./Welcome.css"
+import spotify from "../../public/spotify.png"
+import "../css/Welcome.css"
 function Welcome() {
 
     const generateRandomString = (length: number) => {
@@ -67,7 +67,7 @@ function Welcome() {
 
         if (code != null) {
             console.log(code);
-            authConfirmed(code);
+            // authConfirmed(code);
         } else {
             // authDenied();
             console.log("Authentication denied.")

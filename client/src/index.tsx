@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './css/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import App from './App';
+import App from './pages/App';
 import reportWebVitals from './reportWebVitals';
-import Main from "./Main";
+import Main from "./pages/Main";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
