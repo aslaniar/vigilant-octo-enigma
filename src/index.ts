@@ -13,7 +13,6 @@ const corsOptions = {
     credentials: true, // Allows cookies to be sent
 };
 
-
 app.use(cors(corsOptions));
 app.use(express.json());
 
@@ -46,10 +45,10 @@ app.post("/api/data", (req: Request, res: Response) => {
 
 });
 
-let token: string = "test";
+let accessToken: string;
 
 app.get("/api/credentials", (req: Request, res: Response) => {
-    if (token) {
+    if (accessToken) {
         res.send({"status": "success"})
     }
     else {
@@ -62,7 +61,7 @@ app.get("/api/auth", async (req: Request, res: Response) => {
     console.log("Auth API endpoint reached");
     try {
         const redirectURL = await generateRedirect(); // Ensure to await the promise
-        console.log(redirectURL)
+        // console.log(redirectURL)
         res.redirect(redirectURL); // Redirect to the generated URL
     } catch (error) {
         console.error('Error generating redirect URL:', error);
@@ -74,7 +73,8 @@ app.get("/api/spotify_redirect", (req: Request, res: Response) => {
     const code = req.query.code as string | undefined; // Accessing the 'code' parameter    let code = urlParams.get('code')
 
     if (code) {
-        console.log("Success! The Auth Code is: " + code);
+        console.log("Auth Code Recieved!");
+        getToken(code);
         res.redirect("http://localhost:3000")
         // setAuthCode(code);
     } else {
@@ -82,6 +82,30 @@ app.get("/api/spotify_redirect", (req: Request, res: Response) => {
         console.log("Authentication denied.")
     }
 });
+
+const getToken = async (code: string) => {
+    const url = 'https://accounts.spotify.com/api/token'; // Spotify token endpoint
+
+    const payload = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+            client_id: clientId,
+            grant_type: 'authorization_code',
+            code,
+            redirect_uri: redirectUri,
+            code_verifier: codeVerifier,
+        }),
+    }
+
+    const body = await fetch(url, payload);
+    const response =await body.json();
+
+    accessToken = response.access_token;
+    if (accessToken) console.log("Token Granted!")
+}
 
 const generateRandomString = (length: number) => {
     const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
